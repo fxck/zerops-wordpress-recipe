@@ -1,0 +1,6 @@
+wp:
+  build:
+    base: [ php@8.1 ]
+    build:
+      - wp core install
+    deploy: [ ./ ]
