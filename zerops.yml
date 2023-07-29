@@ -7,6 +7,6 @@ wp:
       - chmod +x wp-cli.phar
       - sudo mv wp-cli.phar /usr/local/bin/wp
     build:
-      - wp --version
-      - wp core install
+      - wp --version --allow-root
+      - wp core install --allow-root
     deploy: [ ./ ]
