@@ -39,12 +39,12 @@ services:
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
       WORDPRESS_STORAGE_BUCKET: ${projectId}.storage
-      WORDPRESS_AUTH_KEY: {$getRandomString(64)}
-      WORDPRESS_AUTH_SALT: {$getRandomString(64)}
-      WORDPRESS_LOGGED_IN_KEY: {$getRandomString(64)}
-      WORDPRESS_LOGGED_IN_SALT: {$getRandomString(64)}
-      WORDPRESS_NONCE_KEY: {$getRandomString(64)}
-      WORDPRESS_NONCE_SALT: {$getRandomString(64)}
-      WORDPRESS_SECURE_AUTH_KEY: {$getRandomString(64)}
-      WORDPRESS_SECURE_AUTH_SALT: {$getRandomString(64)}
+      WORDPRESS_AUTH_KEY: "{@getRandomString(64)}"
+      WORDPRESS_AUTH_SALT: "{@getRandomString(64)}"
+      WORDPRESS_LOGGED_IN_KEY: "{@getRandomString(64)}"
+      WORDPRESS_LOGGED_IN_SALT: "{@getRandomString(64)}"
+      WORDPRESS_NONCE_KEY: "{@getRandomString(64)}"
+      WORDPRESS_NONCE_SALT: "{@getRandomString(64)}"
+      WORDPRESS_SECURE_AUTH_KEY: "{@getRandomString(64)}"
+      WORDPRESS_SECURE_AUTH_SALT: "{@getRandomString(64)}"
 ```

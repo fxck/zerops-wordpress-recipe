@@ -8,7 +8,7 @@ wp:
       - sudo mv wp-cli.phar /usr/local/bin/wp
     build:
       - composer install
-      - wp plugin activate --all
+      - wp plugin activate --all --allow-root
     deploy: [ ./ ]
   run:
     documentRoot: ''

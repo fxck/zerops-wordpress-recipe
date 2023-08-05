@@ -30,9 +30,9 @@ define( 'WP_DEBUG_DISPLAY', getenv('WORDPRESS_DEBUG_DISPLAY') );
 define( 'AS3CF_SETTINGS', serialize(
   array(
     'provider' => 'aws',
-    'access-key-id' => '********************',
-    'secret-access-key' => '**************************************',
-    'bucket' => 'mybucket'
+    'access-key-id' => getenv('WORDPRESS_STORAGE_KEY_ID'),
+    'secret-access-key' => getenv('WORDPRESS_STORAGE_ACCESS_KEY'),
+    'bucket' => getenv('WORDPRESS_STORAGE_BUCKET')
   )
 ) );
 
