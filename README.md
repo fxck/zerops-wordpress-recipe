@@ -27,9 +27,6 @@ services:
     envVariables:
       WORDPRESS_TITLE: zerops wordpress
       WORDPRESS_URL: ${zeropsSubdomain}
-      WORDPRESS_ADMIN_EMAIL: admin@admin.com
-      WORDPRESS_ADMIN_PASSWORD: admin1234
-      WORDPRESS_ADMIN_USER: admin
       WORDPRESS_DB_HOST: ${db_hostname}
       WORDPRESS_DB_NAME: ${db_hostname}
       WORDPRESS_DB_PASSWORD: ${db_password}
