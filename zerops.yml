@@ -11,5 +11,10 @@ wp:
       - wp plugin activate --all --allow-root
     deploy: [ ./ ]
   run:
+    init:
+      - |
+        if ! zcli bucket s3 create storage $WORDPRESS_STORAGE_BUCKET --x-amz-acl=public-read; then
+          echo "Skipping, bucket already exists."
+        fi
     documentRoot: ''
 

@@ -26,7 +26,7 @@ services:
       WORDPRESS_DEBUG_DISPLAY: "true"
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
-      WORDPRESS_STORAGE_BUCKET: ${projectId}.storage
+      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
       WORDPRESS_AUTH_KEY: <@getRandomString(64)}>
       WORDPRESS_AUTH_SALT: <@getRandomString(64)}>
       WORDPRESS_LOGGED_IN_KEY: <@getRandomString(64)}>
@@ -53,7 +53,8 @@ services:
     priority: 10
 ```
 
-## Import WordPress instance into an existing project
+## Import another WordPress instance into an existing project
+
 ```yaml
 #yamlPreprocessor=on
 services:
@@ -76,8 +77,12 @@ services:
             - wp plugin activate --all --allow-root
           deploy: [ ./ ]
         run:
+          init:
+            - |
+              if ! zcli bucket s3 create storage $WORDPRESS_STORAGE_BUCKET --x-amz-acl=public-read; then
+                echo "Skipping, bucket already exists."
+              fi
           documentRoot: ''
-
     envVariables:
       WORDPRESS_TITLE: zerops wordpress
       WORDPRESS_URL: ${zeropsSubdomain}
@@ -90,7 +95,7 @@ services:
       WORDPRESS_DEBUG_DISPLAY: "true"
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
-      WORDPRESS_STORAGE_BUCKET: ${projectId}.storage
+      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
       WORDPRESS_AUTH_KEY: <@getRandomString(64)}>
       WORDPRESS_AUTH_SALT: <@getRandomString(64)}>
       WORDPRESS_LOGGED_IN_KEY: <@getRandomString(64)}>
