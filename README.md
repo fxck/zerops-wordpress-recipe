@@ -27,9 +27,11 @@ services:
       WORDPRESS_ADMIN_USER: admin
       WORDPRESS_DEBUG: "true"
       WORDPRESS_DEBUG_DISPLAY: "true"
+      WORDPRESS_STORAGE_URL: ${storage_apiUrl}
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
-      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
+      WORDPRESS_STORAGE_BUCKET_NAME: storage
+      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.${WORDPRESS_STORAGE_BUCKET_NAME}
       WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
       WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
       WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
@@ -103,9 +105,11 @@ services:
       WORDPRESS_ADMIN_USER: admin
       WORDPRESS_DEBUG: "true"
       WORDPRESS_DEBUG_DISPLAY: "true"
+      WORDPRESS_STORAGE_URL: ${storage_apiUrl}
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
-      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
+      WORDPRESS_STORAGE_BUCKET_NAME: storage
+      WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.${WORDPRESS_STORAGE_BUCKET_NAME}
       WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
       WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
       WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>

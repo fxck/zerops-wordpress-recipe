@@ -17,7 +17,7 @@ wp:
   run:
     init:
       - |
-        if ! zcli bucket s3 create storage $WORDPRESS_STORAGE_BUCKET --x-amz-acl=public-read; then
+        if ! zcli bucket s3 create storage $WORDPRESS_STORAGE_BUCKET_NAME --x-amz-acl=public-read; then
           echo "Skipping, bucket already exists."
         fi
     documentRoot: ''
