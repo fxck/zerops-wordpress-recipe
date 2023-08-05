@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2299af1ecfc22df08082c6fb834aa18a",
+    "content-hash": "bf8085a628b5ff05f11b678069d4191e",
     "packages": [
         {
             "name": "composer/installers",
@@ -195,6 +195,24 @@
                 "source": "https://github.com/deliciousbrains/wp-amazon-s3-and-cloudfront/tree/3.2.4"
             },
             "time": "2023-06-26T08:22:28+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-redis-user-session-storage",
+            "version": "0.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-redis-user-session-storage/",
+                "reference": "tags/0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-redis-user-session-storage.0.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-redis-user-session-storage/"
         }
     ],
     "packages-dev": [],

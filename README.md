@@ -18,7 +18,7 @@ services:
             - chmod +x wp-cli.phar
             - sudo mv wp-cli.phar /usr/local/bin/wp
           build:
-            - composer install
+            - composer update
             - wp plugin activate --all --allow-root
           deploy: [ ./ ]
         run:
