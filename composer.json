@@ -1,0 +1,18 @@
+{
+  "name": "prsi/wp",
+  "require": {
+    "deliciousbrains/wp-amazon-s3-and-cloudfront": "3.2.4",
+    "wpackagist-plugin/wp-redis": "1.1.4"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/composer/{$name}/": ["type:wordpress-plugin"]
+    }
+  }
+}
