@@ -1,5 +1,5 @@
 {
-  "name": "prsi/wp",
+  "name": "zerops/wordpress",
   "require": {
     "wpackagist-plugin/wp-redis-user-session-storage": "0.2",
     "humanmade/s3-uploads": "^3.0"
