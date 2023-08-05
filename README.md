@@ -48,4 +48,5 @@ services:
       WORDPRESS_NONCE_SALT: "{@getRandomString(64)}"
       WORDPRESS_SECURE_AUTH_KEY: "{@getRandomString(64)}"
       WORDPRESS_SECURE_AUTH_SALT: "{@getRandomString(64)}"
+      WORDPRESS_REDIS_USER_SESSION_HOST: redis
 ```

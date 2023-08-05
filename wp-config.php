@@ -36,6 +36,8 @@ define( 'AS3CF_SETTINGS', serialize(
   )
 ) );
 
+define( 'WP_REDIS_USER_SESSION_HOST', getenv('WORDPRESS_REDIS_USER_SESSION_HOST') );
+
 // misc
 define('FORCE_SSL_ADMIN', true);
 
