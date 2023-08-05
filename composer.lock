@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a99570b67845dda4fa43b1d5c17ce50d",
+    "content-hash": "9497086dc39c4283d4f155475fbd26b2",
     "packages": [
         {
             "name": "composer/installers",
@@ -195,24 +195,6 @@
                 "source": "https://github.com/deliciousbrains/wp-amazon-s3-and-cloudfront/tree/3.2.4"
             },
             "time": "2023-06-26T08:22:28+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/wp-redis",
-            "version": "1.1.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-redis/",
-                "reference": "tags/1.1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-redis.1.1.4.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-redis/"
         }
     ],
     "packages-dev": [],
