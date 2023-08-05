@@ -1,4 +1,4 @@
-zerops service import
+Zerops WordPress service import
 
 ```yaml
 #yamlPreprocessor=on
