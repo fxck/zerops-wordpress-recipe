@@ -1,8 +1,8 @@
 {
   "name": "prsi/wp",
   "require": {
-    "deliciousbrains/wp-amazon-s3-and-cloudfront": "3.2.4",
-    "wpackagist-plugin/wp-redis-user-session-storage": "0.2"
+    "wpackagist-plugin/wp-redis-user-session-storage": "0.2",
+    "humanmade/s3-uploads": "^3.0"
   },
   "repositories": [
     {

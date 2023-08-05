@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
 // database
 define( 'DB_NAME', getenv('WORDPRESS_DB_NAME') );
 define( 'DB_USER', getenv('WORDPRESS_DB_USER') );
@@ -27,14 +29,11 @@ define( 'WP_DEBUG', getenv('WORDPRESS_DEBUG') );
 define( 'WP_DEBUG_DISPLAY', getenv('WORDPRESS_DEBUG_DISPLAY') );
 
 // plugins
-define( 'AS3CF_SETTINGS', serialize(
-  array(
-    'provider' => 'aws',
-    'access-key-id' => getenv('WORDPRESS_STORAGE_KEY_ID'),
-    'secret-access-key' => getenv('WORDPRESS_STORAGE_ACCESS_KEY'),
-    'bucket' => getenv('WORDPRESS_STORAGE_BUCKET')
-  )
-) );
+define( 'S3_UPLOADS_BUCKET', getenv('WORDPRESS_STORAGE_BUCKET') );
+define( 'S3_UPLOADS_REGION', 'us-east-1' );
+define( 'S3_UPLOADS_KEY', getenv('WORDPRESS_STORAGE_KEY_ID') );
+define( 'S3_UPLOADS_SECRET', getenv('WORDPRESS_STORAGE_ACCESS_KEY') );
+define( 'S3_UPLOADS_BUCKET_URL', getenv('WORDPRESS_STORAGE_URL') );
 
 define( 'WP_REDIS_USER_SESSION_HOST', getenv('WORDPRESS_REDIS_USER_SESSION_HOST') );
 
