@@ -14,15 +14,16 @@ services:
           base:
             - php@8.1
           prepare:
-            - wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            - curl -sS https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
             - chmod +x wp-cli.phar
             - sudo mv wp-cli.phar /usr/local/bin/wp
           build:
             - composer install
-            - wp plugin activate --all
+            - wp plugin activate --all --allow-root
           deploy: [ ./ ]
         run:
           documentRoot: ''
+
     envVariables:
       WORDPRESS_TITLE: zerops wordpress
       WORDPRESS_URL: ${zeropsSubdomain}
