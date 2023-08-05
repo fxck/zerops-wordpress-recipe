@@ -8,6 +8,10 @@ wp:
       - sudo mv wp-cli.phar /usr/local/bin/wp
     build:
       - composer update
+      - |
+        if ! $(wp core is-installed); then
+          wp core install --url=yourdomain.com --title="Site Title" --admin_user="adminusername" --admin_password="adminpassword" --admin_email="admin@email.com"
+        fi
       - wp plugin activate --all --allow-root
     deploy: [ ./ ]
   run:

@@ -22,19 +22,22 @@ services:
       WORDPRESS_DB_PASSWORD: ${db_password}
       WORDPRESS_DB_USER: ${db_user}
       WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_ADMIN_EMAIL: admin@admin.com
+      WORDPRESS_ADMIN_PASSWORD: <@generateRandomString(<8>)>
+      WORDPRESS_ADMIN_USER: admin
       WORDPRESS_DEBUG: "true"
       WORDPRESS_DEBUG_DISPLAY: "true"
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
       WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
-      WORDPRESS_AUTH_KEY: <@getRandomString(<64>)>
-      WORDPRESS_AUTH_SALT: <@getRandomString(<64>)>
-      WORDPRESS_LOGGED_IN_KEY: <@getRandomString(<64>)>
-      WORDPRESS_LOGGED_IN_SALT: <@getRandomString(<64>)>
-      WORDPRESS_NONCE_KEY: <@getRandomString(<64>)>
-      WORDPRESS_NONCE_SALT: <@getRandomString(<64>)>
-      WORDPRESS_SECURE_AUTH_KEY: <@getRandomString(<64>)>
-      WORDPRESS_SECURE_AUTH_SALT: <@getRandomString(<64>)>
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
       WORDPRESS_REDIS_USER_SESSION_HOST: redis
 
   - hostname: storage
@@ -74,6 +77,10 @@ services:
             - sudo mv wp-cli.phar /usr/local/bin/wp
           build:
             - composer update
+            - |
+              if ! $(wp core is-installed); then
+                wp core install --url=yourdomain.com --title="Site Title" --admin_user="adminusername" --admin_password="adminpassword" --admin_email="admin@email.com"
+              fi
             - wp plugin activate --all --allow-root
           deploy: [ ./ ]
         run:
@@ -91,18 +98,21 @@ services:
       WORDPRESS_DB_PASSWORD: ${db_password}
       WORDPRESS_DB_USER: ${db_user}
       WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_ADMIN_EMAIL: admin@admin.com
+      WORDPRESS_ADMIN_PASSWORD: <@generateRandomString(<8>)>
+      WORDPRESS_ADMIN_USER: admin
       WORDPRESS_DEBUG: "true"
       WORDPRESS_DEBUG_DISPLAY: "true"
       WORDPRESS_STORAGE_KEY_ID: ${storage_accessKeyId}
       WORDPRESS_STORAGE_ACCESS_KEY: ${storage_secretAccessKey}
       WORDPRESS_STORAGE_BUCKET: ${storage_serviceId|lower}.storage
-      WORDPRESS_AUTH_KEY: <@getRandomString(<64>)>
-      WORDPRESS_AUTH_SALT: <@getRandomString(<64>)>
-      WORDPRESS_LOGGED_IN_KEY: <@getRandomString(<64>)>
-      WORDPRESS_LOGGED_IN_SALT: <@getRandomString(<64>)>
-      WORDPRESS_NONCE_KEY: <@getRandomString(<64>)>
-      WORDPRESS_NONCE_SALT: <@getRandomString(<64>)>
-      WORDPRESS_SECURE_AUTH_KEY: <@getRandomString(<64>)>
-      WORDPRESS_SECURE_AUTH_SALT: <@getRandomString(<64>)>
+      WORDPRESS_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_AUTH_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_LOGGED_IN_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_NONCE_SALT: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_KEY: <@generateRandomString(<64>)>
+      WORDPRESS_SECURE_AUTH_SALT: <@generateRandomString(<64>)>
       WORDPRESS_REDIS_USER_SESSION_HOST: redis
 ```
